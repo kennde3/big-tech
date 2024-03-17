@@ -1,4 +1,4 @@
-import { AppWindow } from 'lucide-react'
+import { AppWindow, ChevronsLeftRight, Minus, X } from 'lucide-react'
 import React from 'react'
 
 export default function MainHome() {
@@ -6,7 +6,7 @@ export default function MainHome() {
         <div className="w-[100%] h-fit bg-[#000] lg:pl-[100px] pl-[20px]">
             <div className='flex lg:flex-row flex-col'>
                 <div className='lg:w-[50%] lg:mt-[100px] mt-[30px]'>
-                    <div className='text-lg text-[#66fcf1]'>CREATIVE MIND, CREATIVE WORKS.</div>
+                    <div className='lg:text-lg text-[#66fcf1]'>CREATIVE MIND, CREATIVE WORKS.</div>
                     <div className='lg:text-6xl text-4xl text-white font-bold mt-[20px]'>
                         We are software artisans.
                     </div>
@@ -22,9 +22,9 @@ export default function MainHome() {
                         </div>
                         <div className="px-8 py-5">
                             <div className="flex flex-row space-x-2">
-                                <div className="rounded-full bg-red-400 w-3 h-3"></div>
-                                <div className="rounded-full bg-orange-400 w-3 h-3"></div>
-                                <div className="rounded-full bg-green-200 w-3 h-3"></div>
+                                <div className="rounded-full bg-red-400 w-4 h-4 flex items-center justify-center text-red-400  hover:text-gray-600 "><X className='h-[12px] w-fit  ' /></div>
+                                <div className="rounded-full bg-orange-400 w-4 h-4 flex items-center justify-center text-orange-400 hover:text-gray-600"><ChevronsLeftRight className='h-[12px] w-fit ' /></div>
+                                <div className="rounded-full bg-green-200 w-4 h-4 flex items-center justify-center hover:text-gray-600 text-green-200"><Minus className='h-[12px] w-fit hover:text-gray-600 text-green-200' /></div>
                             </div>
                         </div>
                         <div className="lg:px-8 px-2 py-8 border-t-[2px] border-indigo-900 overflow-hidden">
