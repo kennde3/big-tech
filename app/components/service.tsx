@@ -44,6 +44,8 @@ export default function Service() {
                         <div className='mt-[20px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id arcu luctus.</div>
                     </div>
                 </div>
+                <div className='bg-[#66fcf1] h-[60px] w-1 mx-auto mb-[80px] mr-[53%] mt-[80px]'></div>
+                <div className='flex gap-3  mt-[10px] mx-auto lg:pl-[50px] flex-col lg:flex-row pr-[10px]'></div>
             </div>
         </div>
     )

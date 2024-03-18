@@ -41,14 +41,14 @@ export default function Navbar() {
                         </svg>
                     </button>
                     <div className={`${isOpen ? 'block' : 'hidden'} w-full md:block md:w-auto`} id="navbar-dropdown">
-                        <ul className="flex flex-col font-medium md:p-0 mt-10 border md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 text-xl">
+                        <ul className="flex flex-col font-medium md:p-0 mt-10 border md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 text-md">
                             <li className='my-auto'>
                                 <Link
                                     href="/"
                                     className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-[#66fcf1] dark:bg-blue-600 md:dark:bg-transparent"
                                     aria-current="page"
                                 >
-                                    Home
+                                    HOME
                                 </Link>
                             </li>
                             <li className='my-auto'>
@@ -56,7 +56,7 @@ export default function Navbar() {
                                     href="#"
                                     className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#66fcf1] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                                 >
-                                    About
+                                    ABOUT
                                 </Link>
                             </li >
                             <li className='my-auto'>
@@ -64,7 +64,7 @@ export default function Navbar() {
                                     href="#"
                                     className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#66fcf1] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                                 >
-                                    Service
+                                    SERVICE
                                 </Link>
                             </li>
                             <li className='my-auto'>
@@ -72,7 +72,7 @@ export default function Navbar() {
                                     href="#"
                                     className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#66fcf1] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                                 >
-                                    Project
+                                    PROJECT
                                 </Link>
                             </li>
                             <li className='border-[2px] border-solid px-[30px] py-[10px] mt-0 border-[#66fcf1]'>
@@ -81,7 +81,7 @@ export default function Navbar() {
                                     className="block text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#66fcf1] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent 
 }"
                                 >
-                                    Contact
+                                    CONTACT
                                 </Link>
                             </li>
                         </ul>
