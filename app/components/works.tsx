@@ -22,7 +22,7 @@ export default function Works() {
                     <div className='border-[2px] border-solid px-[30px] py-[10px] mt-5 border-[#66fcf1] w-fit h-fit text-[#66fcf1] font-bold ml-[30em] hidden'>VIEW ALL</div>
                 </div>
             </div>
-            <div className='mt-[50px] pb-[100px] w-[100%] pl-[10px]'>
+            <div className='mt-[100px] w-[100%] pl-[10px]'>
                 <div className='lg:flex '>
                     <div className='lg:w-[50%]'>
                         <Image src={pph} alt={'pastpaper'} className='w-[95%] h-fit lg:skew-x-[20deg] rounded-lg' />
@@ -59,6 +59,8 @@ export default function Works() {
                     <div className='border-[2px] border-solid px-[30px] py-[10px] mt-5 border-[#66fcf1] w-fit h-fit text-[#66fcf1] font-bold lg:hidden '>VIEW ALL</div>
                 </div>
             </div>
+            <div className='bg-[#66fcf1] h-[60px] w-1 mx-auto mb-[80px] mr-[53%] mt-[80px]'></div>
+            <div className='flex gap-3  mt-[10px] mx-auto lg:pl-[50px] flex-col lg:flex-row pr-[10px]'></div>
         </div>
     )
 }
