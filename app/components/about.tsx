@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import me from "@/public/computer-dark.png"
 import { CircleCheck } from 'lucide-react'
+import world from "@/public/world.webp"
 
 
 export default function About() {
@@ -19,28 +20,33 @@ export default function About() {
                     </div>
                 </div>
                 <div className=' flex flex-col-reverse'>
-                    <div className=' my-auto pb-[50px] lg:w-[60%]'>
-                        <div className='text-white text-3xl font-bold'>
-                            Overview
-                        </div>
-                        <div className='text-white mt-[20px]'>
-                            Since 1984, Flowbite has been serving up grab-and-go frozen daiquiris from its stores across the U.S. Its signature drinks, souvenir cups, and discounted refills have made Flowbite synonymous with great music, good vibes, and starting the best party in town.
-                        </div>
-                        <div className='flex mt-[20px] gap-10'>
-                            <div className='flex flex-col gap-2'>
-                                <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Software Development</div>
-                                <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Custom Software Solutions</div>
-                                <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Product Development</div>
+                    <div className='my-auto pb-[50px] lg:w-[100%] flex '>
+                        <div>
+                            <div className='text-white text-3xl font-bold'>
+                                Overview
                             </div>
-                            <div className='flex flex-col gap-2'>
-                                <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Technology Expertise</div>
-                                <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Quality Assurance and Testing</div>
-                                <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Maintenance and Support</div>
+                            <div className='text-white mt-[20px] lg:w-[70%]'>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid veniam maiores error aut deserunt doloribus ut quasi molestias modi enim eos, accusantium magni iste deleniti quidem laboriosam voluptatibus nulla reprehenderit!
                             </div>
+                            <div className='flex mt-[20px] gap-10'>
+                                <div className='flex flex-col gap-2'>
+                                    <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Software Development</div>
+                                    <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Custom Software Solutions</div>
+                                    <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Product Development</div>
+                                </div>
+                                <div className='flex flex-col gap-2'>
+                                    <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Technology Expertise</div>
+                                    <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Quality Assurance and Testing</div>
+                                    <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Maintenance and Support</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <Image src={world} alt={''} className='w-[40em] h-fit hidden lg:block' />
                         </div>
                     </div>
                     <div className='flex justify-end pb-[30px] mt-[50px]'>
-                        <Image src={me} alt={''} className='w-fit lg:h-[30em] rounded-lg' />
+                        <Image src={me} alt={''} className='w-fit lg:h-[30em] rounded-lg ' />
                     </div>
 
                 </div>
