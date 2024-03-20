@@ -5,6 +5,7 @@ import Works from "./components/works";
 import About from "./components/about";
 import Testimonials from "./components/testimonials";
 import Textus from "./components/textus";
+import Client from "./components/client";
 
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <About />
       <Testimonials />
       <Textus />
+      <Client />
     </>
   );
 }

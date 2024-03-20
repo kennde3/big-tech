@@ -3,14 +3,24 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import logo from "@/public/bti-logo.png"
 import Link from 'next/link'
+import { motion, AnimatePresence } from "framer-motion"
 
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <div>
+        <AnimatePresence>
+
             <nav className="bg-black w-full">
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto relative lg:p-10 py-5 pr-3">
+                <motion.div
+                    initial={{ opacity: 0, top: -200 }}
+                    animate={{ opacity: 1, top: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{
+                        duration: 0.8,
+                        ease: "linear",
+                    }}
+                    className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto relative lg:p-10 py-5 pr-3">
                     <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                         <Image
                             src={logo}
@@ -86,10 +96,9 @@ export default function Navbar() {
                             </li>
                         </ul>
                     </div>
-                </div>
+                </motion.div>
             </nav>
-
-        </div>
+        </AnimatePresence>
     )
 }
 

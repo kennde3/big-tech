@@ -24,8 +24,10 @@ export default function Works() {
             </div>
             <div className='mt-[100px] w-[100%] pl-[10px]'>
                 <div className='lg:flex '>
-                    <div className='lg:w-[50%]'>
-                        <Image src={pph} alt={'pastpaper'} className='w-[95%] h-fit lg:skew-x-[20deg] rounded-lg' />
+                    <div className='lg:w-[50%] relative custom_hover'>
+                        <Image src={pph} alt={'pastpaper'} className='w-[95%] h-fit lg:skew-x-[20deg] rounded-lg z-[99] block relative' />
+                        <Image src={pph} alt={'pastpaper'} className='w-[95%] h-fit lg:skew-x-[20deg] rounded-lg absolute top-0 left-0 opacity-[0.6] transition-all' />
+                        <Image src={pph} alt={'pastpaper'} className='w-[95%] h-fit lg:skew-x-[20deg] rounded-lg absolute top-0 left-0 opacity-[0.4] transition-all' />
                     </div>
                     <div className='lg:w-[50%] mt-[20px] lg:mt-0'>
                         <div className='text-4xl text-white font-bold'>PastPaper Hub</div>

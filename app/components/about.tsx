@@ -43,6 +43,7 @@ export default function About() {
                         </div>
                         <div>
                             <Image src={world} alt={''} className='w-[40em] h-fit hidden lg:block' />
+
                         </div>
                     </div>
                     <div className='flex justify-end pb-[30px] mt-[50px]'>

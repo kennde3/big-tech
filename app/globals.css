@@ -5,3 +5,12 @@
 .border-card:hover {
   outline: 2px solid #66fcf1;
 }
+
+.custom_hover:hover>img:nth-child(2) {
+  top: 20px;
+
+}
+
+.custom_hover:hover>img:nth-child(3) {
+  top: 40px;
+}
