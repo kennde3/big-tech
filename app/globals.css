@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:wght@300&display=swap');
+
+.font-custom {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
 .border-card:hover {
   outline: 2px solid #66fcf1;
 }
@@ -13,4 +21,14 @@
 
 .custom_hover:hover>img:nth-child(3) {
   top: 40px;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: red;
+  transform-origin: 0%;
 }

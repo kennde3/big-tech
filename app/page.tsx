@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import MainHome from "./components/home";
 import Service from "./components/service";
@@ -6,11 +7,14 @@ import About from "./components/about";
 import Testimonials from "./components/testimonials";
 import Textus from "./components/textus";
 import Client from "./components/client";
+import { motion, useScroll } from "framer-motion";
 
 
 export default function Home() {
+  const { scrollYProgress } = useScroll();
   return (
     <>
+
       <MainHome />
       <Service />
       <Works />
@@ -18,6 +22,10 @@ export default function Home() {
       <Testimonials />
       <Textus />
       <Client />
+      <motion.div
+        className="progress-bar"
+        style={{ scaleX: scrollYProgress }}
+      />
     </>
   );
 }
