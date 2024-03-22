@@ -144,7 +144,7 @@ export default function Textus() {
                             <div className="relative z-0 w-full group ">
                                 <Flex gap={8} className='flex flex-col relative'>
                                     <Select
-                                        className="block mt-[10px] px-0 w-full text-sm focus:text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                        className="block mb-8 mt-[10px] px-0 w-full text-sm focus:text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                         mode="multiple"
                                         placeholder="Select website types"
                                         variant="borderless"

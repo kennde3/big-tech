@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { AppWindow, ChevronsLeftRight, Minus, X } from 'lucide-react'
 import React from 'react'
 import AnimatedSVG from '../components/AnimatedSVG';
+import HoverEmoji from './HoverEmoji';
 
 
 export default function MainHome() {
@@ -29,8 +30,13 @@ export default function MainHome() {
                         <div className='lg:text-6xl text-4xl text-white font-bold mt-[20px]'>
                             We are software artisans.
                         </div>
-                        <div className='mt-[20px] py-[15px] px-[30px] border-[2px] border-[#66fcf1] text-[white] w-fit'>
-                            GETTING STARTED
+
+                        <div className='w-fit'>
+                            <HoverEmoji emoji="😎">
+                                <div className='mt-[20px] cursor-pointer py-[15px] px-[30px] border-[2px] border-[#66fcf1] text-[white] w-fit'>
+                                    GO TO OUR STORE
+                                </div>
+                            </HoverEmoji>
                         </div>
                     </motion.div>
 
