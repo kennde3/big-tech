@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import logo from "@/public/bti-logo.png"
 import Link from 'next/link'
 import { motion, AnimatePresence } from "framer-motion"
+import { ShoppingCart } from 'lucide-react'
 
 
 export default function Navbar() {
@@ -85,6 +86,7 @@ export default function Navbar() {
                                     PROJECT
                                 </Link>
                             </li>
+
                             <li className='border-[2px] border-solid px-[30px] py-[10px] mt-0 border-[#66fcf1]'>
                                 <Link
                                     href="#"
@@ -94,44 +96,24 @@ export default function Navbar() {
                                     CONTACT
                                 </Link>
                             </li>
+                            <li className='my-auto px-[10px] py-[10px] rounded-full border-[2px] border-[#66fcf1] border-[solid] w-fit hidden lg:block'>
+                                <Link href='#'
+
+                                >
+                                    <ShoppingCart className='text-white' />
+                                </Link>
+                            </li>
                         </ul>
+                        <Link href='#' className='lg:hidden'
+
+                        >
+                            <ShoppingCart className='text-white' />
+                        </Link>
+
                     </div>
                 </motion.div>
             </nav>
-        </AnimatePresence>
+        </AnimatePresence >
     )
 }
 
-{/* <li className='my-auto'>
-<Link
-    href="#"
-    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#66fcf1] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
->
-    About
-</Link>
-</li >
-<li className='my-auto'>
-<Link
-    href="#"
-    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#66fcf1] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
->
-    Service
-</Link>
-</li>
-<li className='my-auto'>
-<Link
-    href="#"
-    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#66fcf1] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
->
-    Project
-</Link>
-</li>
-<li className='border-[2px] border-solid px-[30px] py-[10px] mt-0 border-[#66fcf1]'>
-<Link
-    href="#"
-    className="block text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#66fcf1] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent 
-}"
->
-    Contact
-</Link>
-</li> */}
