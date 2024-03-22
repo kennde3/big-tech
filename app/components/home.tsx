@@ -28,7 +28,7 @@ export default function MainHome() {
                     >
                         <div className='lg:text-lg text-[#66fcf1] font-custom'>your ideas, our code.</div>
                         <div className='lg:text-6xl text-4xl text-white font-bold mt-[20px]'>
-                            We are software artisans.
+                            We are software artisans.<span>🎨</span>
                         </div>
 
                         <div className='w-fit'>
