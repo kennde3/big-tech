@@ -1,12 +1,41 @@
 "use client"
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useAnimation } from 'framer-motion'
 import { AppWindow, ChevronsLeftRight, Minus, X } from 'lucide-react'
 import React from 'react'
 import AnimatedSVG from '../components/AnimatedSVG';
 import HoverEmoji from './HoverEmoji';
+import { useEffect, useState, useRef } from 'react';
 
 
 export default function MainHome() {
+    const [isVisible, setIsVisible] = useState(false);
+    const controls = useAnimation();
+    const elementRef = useRef<HTMLDivElement>(null); // Specify type as HTMLDivElement
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const offsetTop = elementRef.current?.offsetTop ?? 0; // Use nullish coalescing operator
+            const isVisibleNow = scrollTop > offsetTop - window.innerHeight + 100;
+
+            if (isVisibleNow !== isVisible) {
+                setIsVisible(isVisibleNow);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [isVisible]);
+
+    useEffect(() => {
+        if (isVisible) {
+            controls.start({ opacity: 1, x: 0 });
+        } else {
+            controls.start({ opacity: 0, x: -100 });
+        }
+    }, [isVisible, controls]);
+
+
     return (
         <AnimatePresence>
             <div className="w-[100%] h-fit bg-[#000] lg:pl-[100px] pl-[20px] relative">
@@ -128,7 +157,12 @@ export default function MainHome() {
                         </div>
                     </div>
                 </div>
-                <div className='flex gap-3 w-[100%] mt-[55px] mx-auto lg:px-[50px] flex-col lg:flex-row pr-[20px] '>
+                <motion.div
+                    ref={elementRef}
+                    initial={{ opacity: 0, x: -100 }}
+                    animate={controls}
+                    transition={{ duration: 0.8 }}
+                    className='flex gap-3 w-[100%] mt-[55px] mx-auto lg:px-[50px] flex-col lg:flex-row pr-[20px] '>
                     <div className="group relative cursor-pointer overflow-hidden bg-[#0b0c10]  px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg ">
                         <span className="absolute top-10 z-0 h-20 w-20 rounded-full bg-sky-500 transition-all duration-300 group-hover:scale-[10]" />
                         <div className="relative z-10 mx-auto max-w-md">
@@ -240,7 +274,7 @@ export default function MainHome() {
                             </div>
                         </div>
                     </div>
-                </div >
+                </motion.div >
                 <div className='bg-[#66fcf1] h-[40px] w-1 mx-auto mb-[10px] mr-[53%]'></div>
                 <div className='flex gap-3  mt-[10px] mx-auto lg:pl-[50px] flex-col lg:flex-row pr-[10px]'></div>
             </div ></AnimatePresence>

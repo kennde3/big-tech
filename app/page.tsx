@@ -28,7 +28,7 @@ export default function Home() {
       <Client />
 
       <motion.div
-        className="progress-bar"
+        className="progress-bar hidden lg:block"
         style={{ scaleX: scrollYProgress }}
       />
 

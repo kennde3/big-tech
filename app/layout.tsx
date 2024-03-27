@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import CustomCursor from './CustomCursor';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 
