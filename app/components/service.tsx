@@ -25,7 +25,7 @@ export default function Service() {
 
     useEffect(() => {
         if (isVisible) {
-            controls.start({ opacity: 1, x: 0 });
+            controls.start({ opacity: 1, y: 0 });
         }
     }, [isVisible, controls]);
 
@@ -33,9 +33,9 @@ export default function Service() {
         <motion.div
             className='w-[100%] h-fit text-white bg-[#0b0c10] lg:px-[150px] px-[10px]'
             ref={elementRef}
-            initial={{ opacity: 0, x: -100 }}
+            initial={{ opacity: 0, y: 100 }}
             animate={controls}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.9 }}
         >
             <div className='pt-[90px] flex gap-5'>
                 <div className='w-[50px] h-[3px] bg-[#66fcf1] mt-8'></div>
@@ -47,7 +47,7 @@ export default function Service() {
             <div className='flex flex-wrap gap-3 mt-[80px]'>
                 <motion.div
                     className='h-[50vh] lg:w-[25vw] bg-[#121212] py-[40px] px-[40px]'
-                    whileHover={{ scale: 1.05 }}
+
                 >
                     <Airplay className='text-[#66fcf1] w-[50px] h-fit' strokeWidth={2} />
                     <div className='mt-[30px] text-2xl font-bold'>Digital Strategy</div>
@@ -55,7 +55,7 @@ export default function Service() {
                 </motion.div>
                 <motion.div
                     className='h-[50vh] lg:w-[25vw] bg-[#121212] py-[40px] px-[40px]'
-                    whileHover={{ scale: 1.05 }}
+
                 >
                     <Airplay className='text-[#66fcf1] w-[50px] h-fit' strokeWidth={2} />
                     <div className='mt-[30px] text-2xl font-bold'>Digital Strategy</div>
@@ -63,7 +63,7 @@ export default function Service() {
                 </motion.div>
                 <motion.div
                     className='h-[50vh] lg:w-[25vw] bg-[#121212] py-[40px] px-[40px]'
-                    whileHover={{ scale: 1.05 }}
+
                 >
                     <Airplay className='text-[#66fcf1] w-[50px] h-fit' strokeWidth={2} />
                     <div className='mt-[30px] text-2xl font-bold'>Digital Strategy</div>
@@ -71,7 +71,7 @@ export default function Service() {
                 </motion.div>
                 <motion.div
                     className='h-[50vh] lg:w-[25vw] bg-[#121212] py-[40px] px-[40px]'
-                    whileHover={{ scale: 1.05 }}
+
                 >
                     <Airplay className='text-[#66fcf1] w-[50px] h-fit' strokeWidth={2} />
                     <div className='mt-[30px] text-2xl font-bold'>Digital Strategy</div>
@@ -79,7 +79,7 @@ export default function Service() {
                 </motion.div>
                 <motion.div
                     className='h-[50vh] lg:w-[25vw] bg-[#121212] py-[40px] px-[40px]'
-                    whileHover={{ scale: 1.05 }}
+
                 >
                     <Airplay className='text-[#66fcf1] w-[50px] h-fit' strokeWidth={2} />
                     <div className='mt-[30px] text-2xl font-bold'>Digital Strategy</div>
@@ -87,7 +87,7 @@ export default function Service() {
                 </motion.div>
                 <motion.div
                     className='h-[50vh] lg:w-[25vw] bg-[#121212] py-[40px] px-[40px]'
-                    whileHover={{ scale: 1.05 }}
+
                 >
                     <Airplay className='text-[#66fcf1] w-[50px] h-fit' strokeWidth={2} />
                     <div className='mt-[30px] text-2xl font-bold'>Digital Strategy</div>

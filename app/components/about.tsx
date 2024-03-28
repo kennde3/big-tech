@@ -3,6 +3,7 @@ import React from 'react'
 import me from "@/public/computer-dark.png"
 import { CircleCheck } from 'lucide-react'
 import world from "@/public/world.webp"
+import Svg from './svg'
 
 
 export default function About() {
@@ -13,44 +14,25 @@ export default function About() {
                     <div className='w-[50px] h-[3px] bg-[#66fcf1] mt-8'></div>
                     <div className='flex lg:w-[100%]'>
                         <div>
-                            <div className='text-6xl text-white font-bold'>About us.</div>
-                            <div className='mt-[10px] text-[#66fcf1] '>THE PROJECT WE&apos;VE MADE FOR OUR CLIENT</div>
+                            <div className='lg:text-6xl text-5xl text-white font-bold'>About us.</div>
+                            <div className='mt-[10px] text-[#66fcf1]'>THE PROJECT WE&apos;VE MADE FOR OUR CLIENT</div>
 
                         </div>
                     </div>
                 </div>
-                <div className=' flex flex-col-reverse'>
-                    <div className='my-auto pb-[50px] lg:w-[100%] flex '>
-                        <div>
-                            <div className='text-white text-3xl font-bold'>
-                                Overview
-                            </div>
-                            <div className='text-white mt-[20px] lg:w-[70%]'>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid veniam maiores error aut deserunt doloribus ut quasi molestias modi enim eos, accusantium magni iste deleniti quidem laboriosam voluptatibus nulla reprehenderit!
-                            </div>
-                            <div className='flex mt-[20px] gap-10'>
-                                <div className='flex flex-col gap-2'>
-                                    <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Software Development</div>
-                                    <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Custom Software Solutions</div>
-                                    <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Product Development</div>
-                                </div>
-                                <div className='flex flex-col gap-2'>
-                                    <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Technology Expertise</div>
-                                    <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Quality Assurance and Testing</div>
-                                    <div className='flex text-white gap-2'><CircleCheck fill='#0e9f6e' color='#0b0c10' /> Maintenance and Support</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <Image src={world} alt={''} className='w-[40em] h-fit hidden lg:block' />
 
-                        </div>
+            </div>
+            <div className=' w-[100%] flex flex-col lg:flex-row mt-[50px] lg:mt-[40px] pb-[50px]'>
+                <div className='flex flex-col gap-3 text-white my-auto'>
+                    <div className='lg:text-3xl text-xl font-bold'>Helping businesses succeed through web & mobile applications</div>
+                    <div className='text-sm'>
+                        At BTI, we&apos;re passionate about crafting exceptional digital experiences through innovative website and mobile application development. With a focus on creativity, quality, and client satisfaction, we bring ideas to life, helping businesses thrive in the digital landscape.
                     </div>
-                    <div className='flex justify-end pb-[30px] mt-[50px]'>
-                        <Image src={me} alt={''} className='w-fit lg:h-[30em] rounded-lg ' />
+                    <div className='text-sm'>
+                        We believe that every project is an opportunity to create something extraordinary. Whether it&apos;s a sleek and responsive website or a feature-rich mobile application, we approach each endeavor with creativity, attention to detail, and a commitment to excellence.
                     </div>
-
                 </div>
+                <div className='lg:w-fit h-fit hidden lg:block'><Svg /></div>
             </div>
 
         </div>
