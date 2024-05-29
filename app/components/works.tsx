@@ -25,7 +25,7 @@ export default function Works() {
             <div className='mt-[100px] w-[100%] pl-[10px]'>
                 <div className='lg:flex gap-3'>
                     <div className='lg:w-[50%] relative custom_hover'>
-                        <Image src={pph} alt={'pastpaper'} className='w-[100%] h-fit rounded-lg z-[99] block relative' />
+                        <Image src={pph} alt={'pastpaper'} className='w-[95%] h-fit rounded-lg z-[99] block relative' />
                         {/* <Image src={pph} alt={'pastpaper'} className='w-[95%] h-fit  rounded-lg absolute top-0 left-0 opacity-[0.6] transition-all' />
                         <Image src={pph} alt={'pastpaper'} className='w-[95%] h-fit  rounded-lg absolute top-0 left-0 opacity-[0.4] transition-all' /> */}
                     </div>

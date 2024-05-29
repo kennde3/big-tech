@@ -33,3 +33,20 @@
   transform-origin: 0%;
   overflow-x: hidden;
 }
+
+
+.shape {
+  position: absolute;
+  top: -1px;
+  left: 8.5em;
+  border: 1px solid #000000;
+  padding: 10px;
+  background-color: #eceef2;
+  border-radius: 100%;
+  font-size: 28px;
+  /* Adjust the radius to your preference */
+}
+
+.custom-modal {
+  background: red;
+}

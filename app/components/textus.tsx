@@ -1,37 +1,28 @@
-"use client"
-import Image from 'next/image'
-import wallpaper from "@/public/download.jpg"
-import { Facebook, Instagram, Linkedin, Mail, Youtube } from 'lucide-react'
-import Link from 'next/link'
+import Image from 'next/image';
+import wallpaper from "@/public/download.jpg";
+import { Facebook, Instagram, Linkedin, Mail, Youtube } from 'lucide-react';
 import React, { useState } from 'react';
-import { Button, Modal } from 'antd';
-import { Flex, Select, Input } from 'antd';
+import { Button, Modal, Select, Input, Form, message, Flex } from 'antd';
+import emailjs from 'emailjs-com';
+import form from 'antd/es/form';
+
+const { Option } = Select;
+const { TextArea } = Input;
 
 export default function Textus() {
     const [open, setOpen] = useState(false);
     const [confirmLoading, setConfirmLoading] = useState(false);
-    const [modalText, setModalText] = useState('Content of the modal');
+    const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+    const [otherInputVisible, setOtherInputVisible] = useState(false);
+    const [otherInputValue, setOtherInputValue] = useState('');
 
     const showModal = () => {
         setOpen(true);
     };
 
-    const handleOk = () => {
-        setModalText('The modal will be closed after two seconds');
-        setConfirmLoading(true);
-        setTimeout(() => {
-            setOpen(false);
-            setConfirmLoading(false);
-        }, 2000);
-    };
-
     const handleCancel = () => {
-        console.log('Clicked cancel button');
         setOpen(false);
     };
-    const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
-    const [otherInputVisible, setOtherInputVisible] = useState(false);
-    const [otherInputValue, setOtherInputValue] = useState('');
 
     const handleOptionChange = (value: string[]) => {
         setSelectedOptions(value);
@@ -41,6 +32,31 @@ export default function Textus() {
     const handleOtherInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setOtherInputValue(e.target.value);
     };
+
+    const handleFormSubmit = async (values: any) => {
+        try {
+            setConfirmLoading(true);
+            const templateParams = {
+                first_name: values.floating_first_name,
+                last_name: values.floating_last_name,
+                email: values.floating_email,
+                phone: values.floating_phone,
+                website_types: selectedOptions.join(', '),
+                other_type: otherInputVisible ? otherInputValue : 'N/A',
+                description: values.floating_company
+            };
+
+            await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams, 'YOUR_USER_ID');
+
+            message.success('Inquiry sent successfully');
+            setOpen(false);
+        } catch (error) {
+            message.error('Failed to send inquiry');
+        } finally {
+            setConfirmLoading(false);
+        }
+    };
+
     return (
         <div className='relative'>
             <Image src={wallpaper} alt={''} className='fixed h-[100vh] w-[100vw] inset-0 m-auto z-[-1]' />
@@ -54,153 +70,98 @@ export default function Textus() {
                 <div className="text-white text-2xl lg:text-6xl font-bold">
                     Have any project in mind?
                 </div>
-                {/* <button className='border-[2px] border-[#66fcf1] px-[50px] py-[20px] w-fit text-white font-semibold' type="button" data-modal-target="crud-modal" data-modal-toggle="crud-modal">
-                    MAKE INQUIRY
-                </button> */}
 
                 <button type="button" onClick={showModal} className='border-[2px] border-[#66fcf1] px-[50px] py-[20px] w-fit text-white font-semibold'>
                     MAKE INQUIRY
                 </button>
                 <Modal
-                    title="Title"
+                    title="Make an Inquiry"
                     open={open}
-                    onOk={handleOk}
+                    // onOk={() => form.submit()}
                     confirmLoading={confirmLoading}
                     onCancel={handleCancel}
-
-
+                    styles={{ body: { backgroundColor: '#111827' } }}
+                    className="custom-modal"
                 >
-                    <form className="max-w-md mx-auto mt-[20px]">
-
-
-                        <div className="grid md:grid-cols-2 md:gap-6">
-                            <div className="relative z-0 w-full mb-5 group">
+                    <Form
+                        className=""
+                        onFinish={handleFormSubmit}
+                    >
+                        <div>
+                            <div className="mb-5">
+                                <label
+                                    htmlFor="email"
+                                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                >
+                                    Your email
+                                </label>
                                 <input
-                                    type="text"
-                                    name="floating_first_name"
-                                    id="floating_first_name"
-                                    className="block py-2.5 px-0 w-full text-sm focus:text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                    placeholder=" "
+                                    type="email"
+                                    id="email"
+                                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                                    placeholder="name@flowbite.com"
                                     required
                                 />
-                                <label
-                                    htmlFor="floating_first_name"
-                                    className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                                >
-                                    First name(Optional)
-                                </label>
                             </div>
-                            <div className="relative z-0 w-full mb-5 group">
+                            <div className="mb-5">
+                                <label
+                                    htmlFor="password"
+                                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                >
+                                    Your password
+                                </label>
                                 <input
-                                    type="text"
-                                    name="floating_last_name"
-                                    id="floating_last_name"
-                                    className="block py-2.5 px-0 w-full text-sm focus:text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                    placeholder=" "
+                                    type="password"
+                                    id="password"
+                                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                                     required
                                 />
+                            </div>
+                            <div className="mb-5">
                                 <label
-                                    htmlFor="floating_last_name"
-                                    className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                                    htmlFor="repeat-password"
+                                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                 >
-                                    Last name(Optional)
+                                    Repeat password
+                                </label>
+                                <input
+                                    type="password"
+                                    id="repeat-password"
+                                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                                    required
+                                />
+                            </div>
+                            <div className="flex items-start mb-5">
+                                <div className="flex items-center h-5">
+                                    <input
+                                        id="terms"
+                                        type="checkbox"
+                                        defaultValue=""
+                                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+                                        required
+                                    />
+                                </div>
+                                <label
+                                    htmlFor="terms"
+                                    className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                >
+                                    I agree with the{" "}
+                                    <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">
+                                        terms and conditions
+                                    </a>
                                 </label>
                             </div>
-                        </div>
-                        <div className="relative z-0 w-full mb-5 group">
-                            <input
-                                type="email"
-                                name="floating_email"
-                                id="floating_email"
-                                className="block py-2.5 px-0 w-full text-sm focus:text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                placeholder=" "
-                                required
-                            />
-                            <label
-                                htmlFor="floating_email"
-                                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                            <button
+                                type="submit"
+                                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                             >
-                                Email address<span className='text-[red]'>*</span>
-                            </label>
-                        </div>
-                        <div className="grid md:grid-cols-2 md:gap-6">
-                            <div className="relative z-0 w-full mb-5 group">
-                                <input
-                                    type="tel"
-                                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                                    name="floating_phone"
-                                    id="floating_phone"
-                                    className="block py-2.5 px-0 w-full text-sm focus:text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                    placeholder=" "
-                                    required
-                                />
-                                <label
-                                    htmlFor="floating_phone"
-                                    className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                                >
-                                    Phone number (123-456-7890)<span className='text-[red]'>*</span>
-                                </label>
-                            </div>
-
-                            <div className="relative z-0 w-full group ">
-                                <Flex gap={8} className='flex flex-col relative'>
-                                    <Select
-                                        className="block mb-8 mt-[10px] px-0 w-full text-sm focus:text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                        mode="multiple"
-                                        placeholder="Select website types"
-                                        variant="borderless"
-                                        style={{ flex: 1 }}
-                                        value={selectedOptions}
-                                        onChange={handleOptionChange}
-                                    >
-                                        <option value="portfolio">Portfolio Website</option>
-                                        <option value="ecommerce">E-commerce Website</option>
-                                        <option value="blog">Blog Website</option>
-                                        <option value="business">Business Website</option>
-                                        <option value="educational">Educational Website</option>
-                                        <option value="social">Social Networking Website</option>
-                                        <option value="news">News Website</option>
-                                        <option value="forum">Forum or Community Website</option>
-                                        <option value="personal">Personal Website</option>
-                                        <option value="nonprofit">Non-profit or Organization Website</option>
-                                        <option value="mobile">Mobile App</option>
-                                        <option value="other">Other</option>
-                                    </Select>
-                                    {otherInputVisible && (
-                                        <Input
-                                            className='absolute top-[50px]'
-                                            placeholder="Enter other type"
-                                            style={{ flex: 1 }}
-                                            value={otherInputValue}
-                                            onChange={handleOtherInputChange}
-                                        />
-                                    )}
-                                </Flex>
-
-                            </div>
-                            <div className="relative z-0 w-[100%] mb-5 group top-[-20px]">
-                                <textarea
-
-                                    name="floating_company"
-                                    id="floating_company"
-                                    className="block py-2.5 pl-[50px] px-0 w-[100%] text-sm focus:text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                    placeholder=" "
-                                    required
-                                />
-                                <label
-                                    htmlFor="floating_company"
-                                    className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                                >
-                                    Description (Optional)
-                                </label>
-                            </div>
+                                Register new account
+                            </button>
                         </div>
 
-                    </form>
-
+                    </Form>
                 </Modal>
-
             </div>
         </div>
-    )
+    );
 }

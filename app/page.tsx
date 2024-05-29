@@ -12,6 +12,7 @@ import { useState } from "react";
 import CustomCursor from "./CustomCursor";
 
 
+
 export default function Home() {
   const [scaling, setscaling] = useState(false);
   const { scrollYProgress } = useScroll();
@@ -26,6 +27,7 @@ export default function Home() {
       <Testimonials />
       <Textus />
       <Client />
+
 
       <motion.div
         className="progress-bar hidden lg:block"

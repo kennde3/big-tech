@@ -14,9 +14,9 @@ const HoverEmoji = ({ children, emoji }) => {
       {isHovered && (
         <>
           <motion.span
-            className="absolute top-[-70px] left-[8em] border-[1px] p-[7px] bg-[#eceef2] rounded-full text-2xl"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
+            className="shape"
+            initial={{ opacity: 0, x: 10 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.2 }}
           >
             {emoji}

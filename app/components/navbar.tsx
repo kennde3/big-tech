@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image'
 import React, { useState } from 'react'
-import logo from "@/public/bti-logo.png"
+import logo from "@/public/logo (2).png"
 import Link from 'next/link'
 import { motion, AnimatePresence } from "framer-motion"
 import { ShoppingCart } from 'lucide-react'
@@ -21,20 +21,20 @@ export default function Navbar() {
                         duration: 0.8,
                         ease: "linear",
                     }}
-                    className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto relative lg:p-10 py-5 pr-3">
+                    className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto relative lg:p-10 py-5 pr-3 lg:pr-0">
                     <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                         <Image
                             src={logo}
-                            className="w-fit lg:h-[150px] absolute h-[100px] mt-[10px]"
+                            className="w-fit lg:h-[70px] invert absolute h-[45px] mt-[10px] ml-[20px] lg:ml-0"
                             alt="big tech"
                         />
                     </Link>
                     <div className='flex gap-4'>
-                        <Link href='#' className='lg:hidden my-auto'
+                        {/* <Link href='#' className='lg:hidden my-auto'
 
                         >
                             <ShoppingCart className='text-white' />
-                        </Link>
+                        </Link> */}
                         <button
                             onClick={() => setIsOpen(!isOpen)} // Toggle menu state
                             type="button"
