@@ -23,6 +23,24 @@
   top: 40px;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+  background: #555;
+}
+
 .progress-bar {
   position: fixed;
   top: 0;
@@ -32,6 +50,7 @@
   background: #66fcf1;
   transform-origin: 0%;
   overflow-x: hidden;
+  z-index: 999999999;
 }
 
 

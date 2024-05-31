@@ -72,7 +72,7 @@ export default function Navbar() {
                             <li className='my-auto'>
                                 <Link
                                     href="#"
-                                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#66fcf1] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                                    className="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#66fcf1] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                                 >
                                     About
                                 </Link>
@@ -80,7 +80,7 @@ export default function Navbar() {
                             <li className='my-auto'>
                                 <Link
                                     href="#"
-                                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#66fcf1] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                                    className="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#66fcf1] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                                 >
                                     Service
                                 </Link>
@@ -88,7 +88,7 @@ export default function Navbar() {
                             <li className='my-auto'>
                                 <Link
                                     href="#"
-                                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#66fcf1] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                                    className="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#66fcf1] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                                 >
                                     Project
                                 </Link>
@@ -97,19 +97,19 @@ export default function Navbar() {
                             <li className='border-[2px] border-solid px-[30px] py-[10px] mt-0 border-[#66fcf1]'>
                                 <Link
                                     href="#"
-                                    className="block text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#66fcf1] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent 
+                                    className="block text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#66fcf1] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent 
 }"
                                 >
                                     Contact
                                 </Link>
                             </li>
-                            <li className='my-auto px-[10px] py-[10px] rounded-full border-[2px] border-[#66fcf1] border-[solid] w-fit hidden lg:block'>
+                            {/* <li className='my-auto px-[10px] py-[10px] rounded-full border-[2px] border-[#66fcf1] border-[solid] w-fit hidden lg:block'>
                                 <Link href='#'
 
                                 >
                                     <ShoppingCart className='text-white' />
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
 
 

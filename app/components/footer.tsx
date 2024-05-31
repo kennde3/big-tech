@@ -6,7 +6,7 @@ import { Instagram, Linkedin, Youtube } from 'lucide-react'
 
 export default function Footer() {
     return (
-        <footer className="flex flex-col items-center bg-[#0b0c10] text-center text-surface  dark:text-white">
+        <footer className="flex flex-col items-center bg-[#0b0c10] text-center text-surface  text-white">
             <div className="container pt-9">
                 {/* Social media icons container */}
                 <div className="mb-6 flex justify-center space-x-2">
